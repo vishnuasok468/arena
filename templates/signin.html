@@ -1,0 +1,35 @@
+{% extends 'nav1.html' %}
+{% block content %}
+{% load static %}
+
+{%for msg in messages %}
+<div class="alert alert-danger text-center">
+    {{msg}}
+</div>
+{% endfor %}
+
+<div class="container-fluid form-div">
+    <form action="{% url 'd_login' %}" method="post" class="was-validated">
+        {% csrf_token %}
+        <h1 style="font-size: 3vw;" class="text-center">Sign in</h1>
+        <div class="form-group">
+            <label for="uid" id="lbl">User id:</label>
+            <input type="text" name="user" id="box" class="form-control" required>
+            <div class="valid-feedback">valid</div>
+            <div class="invalid-feedback">fill the field</div>
+        </div>
+        <div class="form-group">
+            <label for="pw3" id="lbl">Password:</label>
+            <input type="password" name="pwd" id="box" class="form-control" required>
+            <div class="valid-feedback">valid</div>
+            <div class="invalid-feedback">fill the field</div>
+        </div>
+
+        <input type="submit" value="Sign in" class=" btn btn-info" required>
+        <br><br>
+        <a href="signup.html">Don't have an account? Sign up</a><br><br>
+
+    </form>
+</div><br><br>
+
+{% endblock %}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Arena</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background: url('{% static "img/football-stadium.avif" %}');
+            background-size: 100vw 100vh;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        h1 {
+            padding-top: 2vw;
+            color: rgb(9, 9, 77);
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 255, 0.2);
+        }
+
+        .nav-link {
+            color: black;
+            font-weight: 500;
+        }
+
+        .card-body {
+            background: rgba(27, 27, 27, 0.5);
+            color: white;
+        }
+
+        .card-link {
+            opacity: 0;
+        }
+
+        .card-img-overlay:hover {
+            background: rgba(27, 27, 27, 0.5);
+        }
+
+        .card-link:hover {
+            opacity: 1;
+        }
+
+        .form-div {
+            max-width: 40vw;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            color: white;
+        }
+
+        .nav-item {
+            padding-left: 4vw;
+        }
+
+        .footer {
+            background-color: black;
+            padding: 5vw;
+
+        }
+
+        .footer a,
+        p {
+            color: white;
+        }
+
+        .footer h4 {
+            column-rule: grey;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div style="display: flex;">
+            <img src="{% static 'img/my project.png'%}" alt="" width="100w" class="img-fluid">
+            <h1>Football Arena</h1>
+        </div>
+        <div>
+            <nav class="navbar navbar-expand-sm ">
+                <ul class="navbar-nav nav-pills">
+                    <li class="nav-item"><a href="{%  url 'cat' %}" class="nav-link">Add Category</a></li>
+                    <li class="nav-item"><a href="{%  url 'product' %}" class="nav-link">Add Products</a></li>
+                    <li class="nav-item"><a href="{%  url 'show_products' %}" class="nav-link">show Products</a></li>
+                    <li class="nav-item"><a href="{% url 'user_detail' %}" class="nav-link">User Details</a></li>
+                    <li class="nav-item"><a href="{% url 'd_logout' %}" class="nav-link">LogOut</a></li>
+                </ul>
+            </nav><br>
+        </div>
+
+
+        {% block content %}
+
+        {% endblock %}
+</body>
+
+
+</html>

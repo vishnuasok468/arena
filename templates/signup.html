@@ -1,0 +1,76 @@
+{% extends 'nav1.html' %}
+{% block content %}
+{% load static %}
+
+{%for msg in messages %}
+<div class="alert alert-danger text-center">
+    {{msg}}
+</div>
+{% endfor %}
+<div class="container-fluid form-div">
+    <form action="{% url 'register' %}" method="post" class="was-validated">
+        {% csrf_token %}
+        <h1 class="text-center" style="font-size: 3vw;">Sign UP</h1>
+        <div class="form-group">
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" name="fname" class="form-control" required>
+            <div class="valid-feedback">valid</div>
+            <div class="invalid-feedback">fill the field</div>
+        </div>
+
+        <div class="form-group">
+            <label for="sname">Second Name:</label>
+            <input type="text" id="sname" name="sname" class="form-control" required>
+            <div class="valid-feedback">valid</div>
+            <div class="invalid-feedback">fill the field</div>
+        </div>
+
+        <div class="form-group">
+            <label for="age">Mobile Number:</label>
+            <input type="text" name="number" class="form-control" required>
+            <div class="valid-feedback">valid</div>
+            <div class="invalid-feedback">fill the field</div>
+        </div>
+
+        <div class="form-group">
+            <label for="">Address:</label>
+            <textarea name="address" id="address" cols="30" rows="3" class="form-control" required></textarea>
+            <div class="valid-feedback">valid</div>
+            <div class="invalid-feedback">fill the field</div>
+        </div>
+
+        <div class="form-group">
+            <label for="gmail">Gmail ID:</label>
+            <input type="text" name="mail" class="form-control" required>
+            <div class="valid-feedback">valid</div>
+            <div class="invalid-feedback">fill the field</div>
+
+        </div>
+
+        <div class="form-group">
+            <label for="pw1">UserID:</label>
+            <input type="password" name="user" id="pw1" class="form-control" required>
+            <div class="valid-feedback">valid</div>
+            <div class="invalid-feedback">fill the field</div>
+        </div>
+
+        <div class="form-group">
+            <label for="pw1">Password:</label>
+            <input type="password" name="pwd1" id="pw1" class="form-control" required>
+            <div class="valid-feedback">valid</div>
+            <div class="invalid-feedback">fill the field</div>
+        </div>
+
+        <div class="form-group">
+            <label for="pw2">Confirm Password:</label>
+            <input type="password" name="pwd2" id="pw2" class="form-control" required>
+            <div class="valid-feedback">valid</div>
+            <div class="invalid-feedback">fill the field</div>
+        </div>
+
+
+        <input type="submit" value="Sign up" id="btn" class="btn btn-info form-group"><br>
+        <a href="signin.html">Already have an account?Sign in</a>
+    </form><br>
+</div>
+{% endblock %}

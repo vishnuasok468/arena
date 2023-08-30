@@ -1,0 +1,58 @@
+{% extends 'nav2.html' %}
+{% block content %}
+{% load static %}
+
+{%for msg in messages %}
+<div class="alert alert-danger text-center">
+    {{msg}}
+</div>
+{% endfor %}
+
+<div class="container-fluid form-div">
+    <form action="{% url 'add_product' %}" method="post" class="was-validated" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1 style="font-size: 3vw;" class="text-center">Add Product</h1>
+        <div class="form-group">
+            <label>Product Name:</label>
+            <input type="text" name="product" class="form-control" required>
+            <div class="valid-feedback">valid</div>
+            <div class="invalid-feedback">fill the field</div>
+        </div>
+
+        <div class="form-group">
+            <label for="uid" id="lbl">Product description:</label>
+            <textarea name="description" cols="30" rows="3" class="form-control"></textarea>
+            <div class="valid-feedback">valid</div>
+            <div class="invalid-feedback">fill the field</div>
+        </div>
+
+        <div class="form-group">
+            <label for="uid" id="lbl">Price:</label>
+            <input type="number" name="price" class="form-control" required>
+            <div class="valid-feedback">valid</div>
+            <div class="invalid-feedback">fill the field</div>
+        </div>
+
+        <div class="form-group">
+            <label for="uid" id="lbl">Category:</label>
+            <input type="file" name="img" class="form-control" required accept="image/*">
+            <div class="valid-feedback">valid</div>
+            <div class="invalid-feedback">fill the field</div>
+        </div>
+
+        <div class="form-group">
+            <label for="">Category:</label>
+            <select name="category" class="form-control" required>
+                <option value="" hidden>Select Category</option>
+                {% for i in cat %}
+                <option value="{{i.id}}">{{i.d_category}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <input type="submit" value="Add" class=" btn btn-info" required><br><br><br>
+
+    </form>
+
+
+    {% endblock %}

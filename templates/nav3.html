@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Arena</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background: url('{% static "img/football-stadium.avif" %}');
+            background-size: 100vw 100vh;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        h1 {
+            padding-top: 2vw;
+            color: rgb(9, 9, 77);
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 255, 0.2);
+        }
+
+        .nav-link {
+            color: black;
+            font-weight: 500;
+        }
+
+        .card-body {
+            background: rgba(27, 27, 27, 0.5);
+            color: white;
+        }
+
+        .card-link {
+            opacity: 0;
+        }
+
+        .card-img-overlay:hover {
+            background: rgba(27, 27, 27, 0.5);
+        }
+
+        .card-link:hover {
+            opacity: 1;
+        }
+        .form-div{
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        label{
+            color: white;
+        }
+
+        .nav-item {
+            padding-left: 4vw;
+        }
+
+        .footer {
+            background-color: black;
+            padding: 5vw;
+
+        }
+
+        .footer a,
+        p {
+            color: white;
+        }
+
+        .footer h4 {
+            column-rule: grey;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div style="display: flex;">
+            <img src="{% static 'img/my project.png'%}" alt="" width="100w" class="img-fluid">
+            <h1>Admin Portal</h1>
+        </div>
+        <div>
+            <nav class="navbar navbar-expand-sm ">
+                <ul class="navbar-nav nav-pills">
+                    <li class="nav-item"><a href="{% url 'userhome' %}" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="{% url 'show_cart' %}" class="nav-link">My Cart</a></li>
+                    <li class="nav-item dropdown"><a href="" class="nav-link dropdown-toggle"
+                        data-toggle="dropdown">Categories</a>
+                        <div class="dropdown-menu">
+                            {% for i in cat %}
+                            <a href="{% url 'card' i.id %}" class="dropdown-item">{{i.d_category}}</a>
+                            {% endfor %}
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="{% url 'd_logout' %}" class="nav-link">Logout</a></li>
+                </ul>
+            </nav><br>
+        </div>
+
+
+
+        {% block content %}
+
+        {% endblock %}
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <h4>Company</h4>
+                        <a href="">About us</a><br>
+                        <a href="">Our Services</a><br>
+                        <a href="">Privacy&Policies</a><br>
+                        <a href="">Affiliate Program</a>
+                    </div>
+                    <div class="col">
+                        <h4>Get Help</h4>
+                        <a href="">FAQ</a><br>
+                        <a href="">Shipping</a><br>
+                        <a href="">Order Status</a><br>
+                        <a href="">Payment Options</a><br>
+                    </div>
+                    <div class="col">
+                        <h4>Contact</h4>
+                        <p>H.O -Building No-11/286A Kallarackal House Palliamkara H.M.T Colony P.O,Near HMT Post Office
+                            Ernakulam ,Cochin, Kerala -683504</p>
+                        <p>footballarena2134@gmail.com</p>
+                        <p>9321743538,9321743538</p>
+                    </div>
+                    <div class="col">
+                        <h4><u>Company</u></h4>
+                        <a href="">Facebook</a><br>
+                        <a href="">Instagram</a><br>
+                        <a href="">Youtube</a><br>
+                        <a href="">Twitter</a><br>
+                    </div>
+                </div>
+            </div>
+        </footer>
+</body>
+
+</html>

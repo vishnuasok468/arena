@@ -1,0 +1,22 @@
+{% extends 'nav3.html' %}
+{% block content %}
+{% load static %}
+
+
+<div class="card-group" >
+    {% for i in det %}
+    <div class="card" style="max-width: 20vw; min-width: min-content;">
+        <img src="{{i.d_img.url}}" alt="" class="img-fluid">
+        <div class="card-body">
+            <p class="card-text">{{i.d_description}}</p>
+            
+        </div>
+        <div class="card-footer">
+            <p class="card-text" style="color: black;">Rs.<B>{{i.d_price}}.00</B></p>
+           <a href="{% url 'add_to_cart' i.id%}" class="btn btn-warning">Add to Cart</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock%}
